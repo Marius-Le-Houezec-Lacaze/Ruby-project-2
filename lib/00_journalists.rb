@@ -79,7 +79,7 @@ def sort_by_len(array)
   count = 0
   array.sort_by! { |word| word.length }
   while count < 50
-    puts "#{count + 1}: #{array[count]}"
+    puts "#{count + 1}:#{array[count]}"
     count += 1
   end
   sleep 3
@@ -91,7 +91,6 @@ def epenser(array)
     count += 1
   end
   puts "@epenser est en position numero #{count}".red
-  sleep 5
 end
 
 def answer_question(quest, array)
@@ -113,6 +112,8 @@ def answer_question(quest, array)
     sort_by_len(array)
   elsif quest == 9
     epenser(array)
+  elsif quest == 10
+    exit!
   else
     puts "Le numero que vous avez demander n'est pas valide veuiller reeseyer".red
   end
@@ -131,6 +132,7 @@ while true
    7 Trie la liste de handle par ordre alphabétique.
    8 Quels sont les 50 handles les plus courts de ce array ?
    9 Quelle est la position dans l'array de la personne @epenser ?
+   10 pour quitter le program
 "
   print "Selection votre numero :".red
   question = gets.chomp.to_i

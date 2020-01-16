@@ -28,11 +28,15 @@ def lowest_value(hash)
 end
 
 def affich_coin(hash)
+  i = 0
   hash.each do |h|
+    h[0] = h[0].downcase
     if h[0].include?("coin")
       puts h[0]
+      i += 1
     end
   end
+  puts "il y'a #{i} crypto qui contienne le mot coin"
 end
 
 def lower_than(hash)
