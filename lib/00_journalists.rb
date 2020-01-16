@@ -18,7 +18,7 @@ def digit_handle(array)
       count += 1
     end
   end
-  puts "Il y'a #{count} handle qui contienne des chiffre"
+  puts "Il y'a #{count} handle qui contienne des chiffre".red
   sleep 1
 end
 
@@ -26,46 +26,44 @@ def has_upper(array)
   count = 0
   array.each do |n|
     n.slice!(0)
-    if n.slice(0).count("A-B-C-D-E-F-G-H-I-J-K-L-M-N-O-P-Q-R-S-T-U-V-W-X-Y-Z") > 0
+    if n.slice(0).count("A-Z") > 0
       count += 1
     end
   end
-  puts "Il y'a #{count} qui commence pars une Majuscles"
+  puts "Il y'a #{count} qui commence pars une Majuscles".red
   sleep 1
 end
 
 def contain_upper(array)
   count = 0;
   array.each do |n|
-    if n.count("A-B-C-D-E-F-G-H-I-J-K-L-M-N-O-P-Q-R-S-T-U-V-W-X-Y-Z") > 0
+    if n.count("A-Z") > 0
       count += 1
     end
   end
-  puts("Il y'a #{count} handle qui contienne une majuscule")
+  puts "Il y'a #{count} handle qui contienne une majuscule".red
   sleep(1)
 end
 
-
 def count_underscore(array)
   count = 0
-
   array.each do |n|
     if n.count("_") > 0
       count += n.count("_")
     end
   end
-  puts "il y'a #{count} underscore dans tout les pseudo conffondu "
+  puts "il y'a #{count} underscore dans tout les pseudo conffondu ".red
   sleep 1
 end
 
 def aude_search(array)
   count = 0
   array.each do |n|
-    if n.include? "aude" 
-      count += 1;
+    if n.include?("aude") || n.include?("Aude")
+      count += 1
     end
   end
-  puts "Il y'a #{count} handle qui contienne aude"
+  puts "Il y'a #{count} handle qui contienne aude".red
   sleep 1
 end
 
@@ -73,13 +71,13 @@ def alphabetize(array)
   array.each do |n|
     n[0] = ""
   end
-  puts array.sort
+  puts array.sort_by(&:downcase)
   sleep 3
 end
 
 def sort_by_len(array)
   count = 0
-  array = array.sort_by { |word| word.length }
+  array.sort_by! { |word| word.length }
   while count < 50
     puts "#{count + 1}: #{array[count]}"
     count += 1
@@ -92,9 +90,8 @@ def epenser(array)
   while array[count] != "@epenser"
     count += 1
   end
-  puts "@epenser est en position numero #{count}"
+  puts "@epenser est en position numero #{count}".red
   sleep 5
-  exit
 end
 
 def answer_question(quest, array)
@@ -116,6 +113,8 @@ def answer_question(quest, array)
     sort_by_len(array)
   elsif quest == 9
     epenser(array)
+  else
+    puts "Le numero que vous avez demander n'est pas valide veuiller reeseyer".red
   end
 end
 
@@ -133,7 +132,7 @@ while true
    8 Quels sont les 50 handles les plus courts de ce array ?
    9 Quelle est la position dans l'array de la personne @epenser ?
 "
-  print "Selection votre numero :"
+  print "Selection votre numero :".red
   question = gets.chomp.to_i
   answer_question(question, handle)
   
