@@ -79,7 +79,7 @@ def sort_by_len(array)
   count = 0
   array.sort_by! { |word| word.length }
   while count < 50
-    puts "#{count + 1}:#{array[count]}"
+    puts "#{count + 1}:#{ array[count]}"
     count += 1
   end
   sleep 3
