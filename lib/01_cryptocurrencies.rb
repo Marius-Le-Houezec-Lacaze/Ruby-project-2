@@ -69,6 +69,8 @@ def answer(question, hash)
     lower_than(hash)
   when 5
     bigger_than(hash)
+  when 6
+    exit
   end
 end
 
@@ -80,7 +82,9 @@ while true
       2 Affiche la crypto avec le moin de valeur
       3 Affiche les crypto contenant le mot coin
       4 Affiche les crypto dont le cours est inferieur a 6000
-      5 Affiche la plus chers des crypto inferieur a 6000 "
+      5 Affiche la plus chers des crypto inferieur a 6000 
+      6 Pour quitter le programme
+      "
   print ">"
   question = gets.chomp.to_i
   answer(question, hash)
